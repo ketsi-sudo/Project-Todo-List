@@ -204,7 +204,13 @@
       </div>
     </div>
 
-    <div>
+    <div class="my-editor">
+        <label for="note_task">Note</label>
+        <div class="my-toolbar"></div>
+        <div class="my-content" id="note_task"></div>
+    </div>
+
+    <!-- <div>
       <label for="note_task">Note</label>
       <textarea id="note_task"></textarea>
     </div>
@@ -214,7 +220,7 @@
       <input type="text" id="checklist_task">
       <h4>Checklist preview</h4>
       <ul></ul>
-    </div>
+    </div> -->
 
 
   
@@ -231,6 +237,12 @@
 </div>
 
 
+<div class="my-editor">
+  <div class="my-toolbar"></div>
+  <div class="my-content"></div>
+</div>
+<button id="Ssave">Ssave</button>
+
     <!-- Input field for new list item text -->
     <div>
       <label for="newItemInput">Add a checklist</label>
@@ -243,7 +255,7 @@
       <button type="button"  id="addButton">Add Item</button>
       
       <!-- Unordered list to hold list items -->
-      <ul id="dynamicList"></ul>
+      <div id="dynamicList"></div>
     </div>
 
 
