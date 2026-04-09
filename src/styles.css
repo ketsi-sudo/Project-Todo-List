@@ -48,6 +48,7 @@ div.sidebar a {
     transition: 0.3s;
 }
 
+
 @media screen and (max-height: 450px) {
     div.sidebar {padding-top: 15px;}
     div.sidebar a {font-size: 18px;}
@@ -77,6 +78,14 @@ div.sidebar .closebtn {
     transition: 0.3s;
     cursor: pointer;
 
+}
+
+button.delete-project {
+    flex: 3;
+    text-align: right;
+    color: #79787997;
+    cursor: pointer;
+    padding: 4px;
 }
 
 
