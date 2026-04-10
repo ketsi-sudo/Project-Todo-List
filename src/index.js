@@ -48,7 +48,8 @@ btn.addEventListener("click", () => {
 
 let projectArray = []
 let taskArray = []
-localStorage.clear()
+// localStorage.clear()
+
 
 
 class Project {
@@ -282,8 +283,8 @@ function taskUserInput(e) {
     const priority = document.getElementById("priority_task").value
     const project = document.getElementById("project_task").value
     const dueDate = document.getElementById("due_date").value
-    const note = editor.getValue();
-    // const note = document.getElementById("note_task").value
+    // const note = editor.getValue();
+    const note = document.getElementById("note_task").value
     // create an array from the text value of checklist and store that array as the checklist value
     // let checklistStr = document.getElementById("checklist_task").value;
     // let checklist = checklistStr.split("-");
@@ -337,11 +338,17 @@ function searchIndexForTerm(searchTerm) {
 };
 
 
+
+
+searchIndexForTerm("inbox"); // show inbox tasks on load
+
+
+
 function displayshituk (array) {
 
   array.forEach((item) => {
   
-    if (item.taskNote === undefined || item.taskChecklist === undefined) {
+    if (item.taskNote === undefined) {
 
       const container = document.querySelector(".taskList");
       const newTaskDiv = document.createElement("details");
@@ -378,7 +385,12 @@ function displayshituk (array) {
               <p class="priority-text">${item.priority}</p>
             </div>
           </div>
-        </summary>`
+        </summary>
+        <div class=" accordion-content collapse-content text-sm">
+          <hr width="100%" size="2" color="gray">
+          <div class="accordion-open-top">
+            <p class="note">No notes</p>       
+        </div>`
 
         const deleteSvg = document.querySelector(".delete-svg")
         deleteSvg.setAttribute("id", item.uuid)
@@ -431,7 +443,12 @@ function displayshituk (array) {
               <p class="priority-text">${item.priority}</p>
             </div>
           </div>
-        </summary> `
+        </summary> 
+        <div class=" accordion-content collapse-content text-sm">
+          <hr width="100%" size="2" color="gray">
+          <div class="accordion-open-top">
+            <p class="note">${item.taskNote}</p>       
+      </div>`
 
         const deleteSvg = document.querySelector(".delete-svg")
         deleteSvg.setAttribute("id", item.uuid)
@@ -502,3 +519,21 @@ taskList.addEventListener("click", (e) => {
 
 
 
+
+
+// // toggling the elements on
+// const details = document.querySelectorAll("summary");
+// const detailsArray = array.from(details);
+// detailsArray.forEach((detail) => {
+//   detail.addEventListener("click", (e) => {
+//     detail.open = true;
+//   })
+// })
+
+document.querySelectorAll('details').forEach((details) => {
+  details.addEventListener('toggle', (event) => {
+    const detailsElement = event.target;
+    const summaryText = detailsElement.querySelector('summary').textContent;
+    console.log(`"${summaryText}" is now ${detailsElement.open ? 'open' : 'closed'}`);
+  });
+});
